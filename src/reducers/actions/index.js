@@ -1,17 +1,18 @@
 import { AUTH_USER, AUTH_ERROR } from './types'
 import axios from 'axios'
+import { IP } from './serverIP'
 
 export const signup = (formProps, callback) => async (dispatch, getState) => {
     try {
-        const response = await axios.post('http://localhost:3090/signup', formProps)
+        const response = await axios.post(`${IP}/signup`, formProps)
         const token = response.data.token
         dispatch({
             type: AUTH_USER,
             payload: token
         })
-        dispatch( {
+        dispatch({
             type: AUTH_ERROR,
-            payload:''
+            payload: ''
         })
         localStorage.setItem('token', token)
         callback()
@@ -26,24 +27,24 @@ export const signup = (formProps, callback) => async (dispatch, getState) => {
 
 export const signout = (callback) => dispatch => {
     // if user has logged out, redirect to signup
-    if(!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token')) {
         callback()
     }
     localStorage.removeItem('token')
-    dispatch( {
+    dispatch({
         type: AUTH_USER,
-        payload:''
+        payload: ''
     })
-    dispatch( {
+    dispatch({
         type: AUTH_ERROR,
-        payload:''
+        payload: ''
     })
 }
 
 
 export const signin = (formProps, callback) => async (dispatch, getState) => {
     try {
-        const response = await axios.post('http://localhost:3090/signin', formProps)
+        const response = await axios.post(`${IP}/signin`, formProps)
         const token = response.data.token && response.data.token
         dispatch({
             type: AUTH_USER,

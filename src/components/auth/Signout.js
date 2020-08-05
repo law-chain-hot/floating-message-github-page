@@ -5,7 +5,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Signout = (props) => {
-  const callback = () => props.history.push('/signup')
+  // const callback = () => props.history.push('/signup')
+  const callback = () => props.history.push('/')
+
   const { logout } = useAuth0();
 
   useEffect(() => {

@@ -5,8 +5,11 @@ import { connect } from 'react-redux'
 
 import * as actions from '../../reducers/actions'
 
+// import { useAuth0 } from "@auth0/auth0-react";
+
 const Signin = (props) => {
     const { handleSubmit } = props
+    // const { user, isAuthenticated } = useAuth0();
 
     const onSubmit = (formProps) => {
         const callback = () => props.history.push('/feature')

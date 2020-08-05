@@ -30,7 +30,8 @@ ReactDOM.render(
         domain="qianhao.us.auth0.com"
         clientId="n7SUj53FMNjQq226jttnVYSbRYl8kIVb"
         // redirectUri={window.location.origin}
-        redirectUri="http://localhost:3000/"
+        // redirectUri="http://localhost:3000/"
+        redirectUri="https://mysterious-caverns-42891.herokuapp.com/"
     >
         <Provider store={store}>
             <BrowserRouter>

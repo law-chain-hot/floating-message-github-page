@@ -15,6 +15,8 @@ const Header = (props) => {
         <>
           <Link to="/signout">Sign Out</Link>
           <Link to="/feature">Feature</Link>
+          <Link to="/postmessage">Post Message</Link>
+          <Link to="/getmessage">Get Message</Link>
         </>
       );
     } else {
@@ -30,7 +32,7 @@ const Header = (props) => {
   return (
     <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
       <Link to="/">Redux Auth</Link>
-      {renderLinks()}
+      <div style={{ display: "flex", justifyContent: "space-around"}}>{renderLinks()}</div>
     </div>
   )
 }

@@ -12,6 +12,8 @@ import Signup from './components/auth/Signup'
 import Feature from './components/Feature'
 import Signout from './components/auth/Signout'
 import Signin from './components/auth/Signin'
+import Message from './components/Message'
+import GetMessage from './components/GetMessage'
 
 import { Auth0Provider } from "@auth0/auth0-react";
 
@@ -39,8 +41,10 @@ ReactDOM.render(
                     <Route path='/' exact component={Welcome} />
                     <Route path='/signup' exact component={Signup} />
                     <Route path='/feature' exact component={Feature} />
-                    <Route path='/Signout' exact component={Signout} />
-                    <Route path='/Signin' exact component={Signin} />
+                    <Route path='/signout' exact component={Signout} />
+                    <Route path='/signin' exact component={Signin} />
+                    <Route path='/postmessage' exact component={Message} />
+                    <Route path='/getmessage' exact component={GetMessage} />
                 </App>
             </BrowserRouter>
         </Provider>

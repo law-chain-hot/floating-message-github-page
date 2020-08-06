@@ -7,15 +7,11 @@ import reduxThunk from 'redux-thunk'
 
 import reducer from './reducers'
 import App from './components/App'
-import Welcome from './components/Welcome'
-import Signup from './components/auth/Signup'
-import Feature from './components/Feature'
-import Signout from './components/auth/Signout'
-import Signin from './components/auth/Signin'
-import Message from './components/Message'
-import GetMessage from './components/GetMessage'
+
 
 import { Auth0Provider } from "@auth0/auth0-react";
+
+import 'semantic-ui-css/semantic.min.css'
 
 
 
@@ -25,6 +21,8 @@ const initState = {
     }
 }
 
+
+
 const store = createStore(reducer, initState, applyMiddleware(reduxThunk))
 
 ReactDOM.render(
@@ -32,20 +30,11 @@ ReactDOM.render(
         domain="qianhao.us.auth0.com"
         clientId="n7SUj53FMNjQq226jttnVYSbRYl8kIVb"
         // redirectUri={window.location.origin}
-        // redirectUri="http://localhost:3000/"
-        redirectUri="https://mysterious-caverns-42891.herokuapp.com/"
+        redirectUri={process.env.REACT_APP_AUTH0_ENV}
     >
         <Provider store={store}>
             <BrowserRouter>
-                <App>
-                    <Route path='/' exact component={Welcome} />
-                    <Route path='/signup' exact component={Signup} />
-                    <Route path='/feature' exact component={Feature} />
-                    <Route path='/signout' exact component={Signout} />
-                    <Route path='/signin' exact component={Signin} />
-                    <Route path='/postmessage' exact component={Message} />
-                    <Route path='/getmessage' exact component={GetMessage} />
-                </App>
+                <App/>
             </BrowserRouter>
         </Provider>
     </Auth0Provider>

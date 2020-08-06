@@ -8,10 +8,11 @@ const Signout = (props) => {
   // const callback = () => props.history.push('/signup')
   const callback = () => props.history.push('/')
 
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated } = useAuth0();
 
   useEffect(() => {
-    logout()
+    if(isAuthenticated) 
+      logout()
     props.signout(callback)
   }, [])
 

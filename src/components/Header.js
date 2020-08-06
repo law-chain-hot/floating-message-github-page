@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { useAuth0 } from "@auth0/auth0-react";
-
+import SideBar from './ButtonAppBar'
 
 
 
@@ -30,9 +30,12 @@ const Header = (props) => {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
-      <Link to="/">Redux Auth</Link>
-      <div style={{ display: "flex", justifyContent: "space-around"}}>{renderLinks()}</div>
+    <div>
+      <SideBar/>
+      <div style={{ display: "flex", justifyContent: "space-around", flexDirection: "column" }}>
+        
+        <div style={{ display: "flex", justifyContent: "space-around"}}>{renderLinks()}</div>
+      </div>
     </div>
   )
 }

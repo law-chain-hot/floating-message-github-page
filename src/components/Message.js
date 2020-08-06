@@ -4,7 +4,7 @@ import { compose } from 'redux'
 import axios from 'axios'
 import { IP } from '../reducers/actions/serverIP'
 
-import requireAuth from './requireAuth'
+import requireAuth from './HOC/requireAuth'
 
 
 // import { useAuth0 } from "@auth0/auth0-react";
@@ -21,7 +21,6 @@ const Message = (props) => {
             name: name,
             content: content
         }
-        console.log(postData)
         axios.post(`${IP}/postmessage`, postData)
         // axios.post(`http://localhost:3090/postmessage`, postData)
         setName('')

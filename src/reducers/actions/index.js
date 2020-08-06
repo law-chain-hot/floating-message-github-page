@@ -2,7 +2,7 @@ import { AUTH_USER, AUTH_ERROR } from './types'
 import axios from 'axios'
 import { IP } from './serverIP'
 
-export const signup = (formProps, callback) => async (dispatch, getState) => {
+export const signup = (formProps, callback=()=>{}) => async (dispatch, getState) => {
     try {
         const response = await axios.post(`${IP}/signup`, formProps)
         const token = response.data.token
@@ -15,7 +15,9 @@ export const signup = (formProps, callback) => async (dispatch, getState) => {
             payload: ''
         })
         localStorage.setItem('token', token)
-        callback()
+        setTimeout(() => {
+            callback()
+        }, 1000)
     } catch (e) {
         dispatch({
             type: AUTH_ERROR,
@@ -42,7 +44,7 @@ export const signout = (callback) => dispatch => {
 }
 
 
-export const signin = (formProps, callback) => async (dispatch, getState) => {
+export const signin = (formProps, callback=()=>{}) => async (dispatch, getState) => {
     try {
         const response = await axios.post(`${IP}/signin`, formProps)
         const token = response.data.token && response.data.token
@@ -51,11 +53,20 @@ export const signin = (formProps, callback) => async (dispatch, getState) => {
             payload: token
         })
         localStorage.setItem('token', token)
-        callback()
+        setTimeout(() => callback(), 1000)
+        
     } catch (e) {
         dispatch({
             type: AUTH_ERROR,
             payload: 'Email or password are wrong'
         })
     }
+}
+
+
+export const clearError = (formProps, callback=()=>{}) => (dispatch) => {
+    dispatch({
+        type: AUTH_ERROR,
+        payload: ''
+    })
 }

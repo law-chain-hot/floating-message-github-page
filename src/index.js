@@ -30,7 +30,7 @@ ReactDOM.render(
         domain="qianhao.us.auth0.com"
         clientId="n7SUj53FMNjQq226jttnVYSbRYl8kIVb"
         // redirectUri={window.location.origin}
-        redirectUri={process.env.REACT_APP_AUTH0_ENV}
+        redirectUri={process.env.REACT_APP_AUTH0}
     >
         <Provider store={store}>
             <BrowserRouter>

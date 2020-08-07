@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     }
 });
 
-const IP = process.env.REACT_APP_SERVER_DEV
+const IP = process.env.REACT_APP_SERVER
 
 const CardExampleExtraContent = (props) => {
     const classes = useStyles();

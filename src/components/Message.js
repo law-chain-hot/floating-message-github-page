@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
 });
 
-const IP = process.env.REACT_APP_SERVER_DEV
+const IP = process.env.REACT_APP_SERVER
 
 // import { useAuth0 } from "@auth0/auth0-react";
 

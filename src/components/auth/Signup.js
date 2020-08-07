@@ -10,6 +10,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from "@auth0/auth0-react";
 import * as actions from '../../reducers/actions'
 
+import './Segment.css'
+
+
 
 const useStyles = makeStyles({
     login: {
@@ -80,7 +83,7 @@ const Signup = (props) => {
                 <h2>Sign up</h2>
             </div>
             <div className={classes.login}>
-                <Segment placeholder className={classes.segment}>
+                <Segment placeholder className={classes.segment} id='test'>
                     <Grid columns={2} relaxed='very' stackable>
                         <Grid.Column>
                             <Form onSubmit={handleSubmit}>
@@ -111,16 +114,7 @@ const Signup = (props) => {
                         </Grid.Column>
 
                         <Grid.Column verticalAlign='middle'>
-                            {/* <Button icon='signup' size='big'>
-                                <i aria-hidden="true" class="signup icon"></i>
-                                <Link to="/signin" >Sign in</Link>
-                            </Button> */}
-                            {/* <Link to="/signin" >
-                                <Button content='Sign in' icon='signup' size='big' />
-                            </Link> */}
-
                             <p> </p>
-
                             <Button
                                 content='Google account'
                                 icon='google'

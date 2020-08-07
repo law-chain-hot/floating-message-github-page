@@ -1,6 +1,8 @@
 import { AUTH_USER, AUTH_ERROR } from './types'
 import axios from 'axios'
-import { IP } from './serverIP'
+
+
+const IP = process.env.REACT_APP_SERVER_DEV
 
 export const signup = (formProps, callback=()=>{}) => async (dispatch, getState) => {
     try {

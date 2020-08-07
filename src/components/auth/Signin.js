@@ -11,6 +11,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from "@auth0/auth0-react";
 import * as actions from '../../reducers/actions'
 
+import './Segment.css'
+
 
 const useStyles = makeStyles({
     login: {
@@ -22,7 +24,8 @@ const useStyles = makeStyles({
         justifyContent: 'center'
     },
     segment: {
-        width: '70%'
+        width: '70%',
+        boxShadow: '1px 3px 19px 3px rgb(34 36 38 / 35%) important!'
     },
     btn: {
         marin: '0 10px '
@@ -77,7 +80,7 @@ const Signin = (props) => {
                 <h2>Sign in</h2>
             </div>
             <div className={classes.login}>
-                <Segment placeholder className={classes.segment}>
+                <Segment placeholder className={classes.segment} id='test'>
                     <Grid columns={2} relaxed='very' stackable>
                         <Grid.Column>
                             <Form onSubmit={handleSubmit}>

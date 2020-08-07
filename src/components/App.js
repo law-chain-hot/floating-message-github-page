@@ -21,6 +21,7 @@ import ButtonAppBar from './ButtonAppBar'
 
 const App = ({ children, authenticated }) => {
     const { user, isAuthenticated } = useAuth0();
+    document.body.style.background = '#bfbfbf12';
 
     return (
         <div>

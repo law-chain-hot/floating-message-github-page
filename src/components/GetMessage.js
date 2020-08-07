@@ -1,48 +1,78 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux'
 import axios from 'axios'
-import { IP } from '../reducers/actions/serverIP'
 
 import requireAuth from './HOC/requireAuth'
 
 import Button from '@material-ui/core/Button';
+import Card from './Card'
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    container: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        padding: '5%'
+    }
+
+})
+
+const IP = process.env.REACT_APP_SERVER_DEV
 
 // import { useAuth0 } from "@auth0/auth0-react";
 
 const GetMessage = (props) => {
     // const { handleSubmit } = props
+    const classes = useStyles()
     // const { user, isAuthenticated } = useAuth0();
     const [database, setDatabase] = useState([])
+    const [message, setMessage] = useState({})
+
+    // console.log("GetMessage -> database", database)
 
 
-    const onClick = async (event) => {
-        const response = await axios.get(`${IP}/getmessage`)
-        console.log("onClick -> response", response.data)
+    useEffect(() => {
+        const getData = async () => {
+            const response = await axios.get(`${IP}/getmessage`)
+            setDatabase(response.data)
+        }
+        getData()
 
-        setDatabase(response.data)
+    }, [])
+
+
+    const handleClick = () => {
+        // generateMessage(database)
+        if (database.length === 0) return
+        const index = Math.floor(Math.random() * database.length)
+        const currMes = database.splice(index, 1)[0]
+        setMessage(currMes)
     }
 
-    const generateMessage = (database) => {
-        if (database.length === 0) return
-        const message = database[Math.floor(Math.random() * database.length)]
-
+    const generateMessage = (message) => {
         return (
-            <div style={{ background: 'gold' }}>
-                <div>Name: {message.name}</div>
-                <div>Content: {message.content}</div>
-            </div>
+            <Card
+                name={message.name}
+                content={message.content}
+                like={message.like || 0}
+                id={message._id}
+            />
         )
     }
 
     return (
         <>
-            <h4>Message get</h4>
-            <Button variant="contained" color="primary" onClick={onClick}>
-                Get message!
-            </Button>
-            {generateMessage(database)}
+            <div className={classes.container}>
+                <h4>Message get</h4>
+                <Button variant="contained" color="primary" onClick={handleClick}>
+                    Get message!
+                </Button>
+                {generateMessage(message)}
+            </div>
         </>
     )
 }

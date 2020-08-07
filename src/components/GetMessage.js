@@ -67,7 +67,7 @@ const GetMessage = (props) => {
     return (
         <>
             <div className={classes.container}>
-                <h4>Message get</h4>
+                <h4>Random Message From The Flow</h4>
                 <Button variant="contained" color="primary" onClick={handleClick}>
                     Get message!
                 </Button>

@@ -13,6 +13,7 @@ import * as actions from '../../reducers/actions'
 
 import './Segment.css'
 
+import Loader from '../Loader'
 
 const useStyles = makeStyles({
     login: {
@@ -44,20 +45,28 @@ const Signin = (props) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [successful, setSuccessful] = useState(false)
+    const [loader, setLoader] = useState(false)
 
+    const updateError = () => {
+        props.clearError()
+    }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        updateError()
         const callback = () => props.history.push('/feature')
         const postData = {
             email: email,
             password: password
         }
-        setSuccessful(props.signin(postData, callback))
+        setLoader(true)
+        await props.signin(postData, callback)
+        setLoader(false)
+
         event.preventDefault()
     }
 
     const generateMessage = () => {
+
         if (props.authenticated) return (
             <Message
                 success
@@ -72,6 +81,11 @@ const Signin = (props) => {
                 content='Your email or password is wrong.'
             />
         )
+    }
+
+    const generateLoader = (loader) => {
+        if (loader) return <Loader/>
+        else return 
     }
 
     return (
@@ -105,6 +119,7 @@ const Signin = (props) => {
 
                                 <Button content='Login' primary type='submit' />
                             </Form>
+                            {generateLoader(loader)}
                             {generateMessage()}
                         </Grid.Column>
 

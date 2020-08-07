@@ -56,12 +56,13 @@ export const signin = (formProps, callback=()=>{}) => async (dispatch, getState)
         })
         localStorage.setItem('token', token)
         setTimeout(() => callback(), 1000)
-        
+        return true
     } catch (e) {
         dispatch({
             type: AUTH_ERROR,
             payload: 'Email or password are wrong'
         })
+        return false
     }
 }
 

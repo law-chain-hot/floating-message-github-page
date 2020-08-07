@@ -12,6 +12,7 @@ import * as actions from '../../reducers/actions'
 
 import './Segment.css'
 
+import Loader from '../Loader'
 
 
 const useStyles = makeStyles({
@@ -43,18 +44,24 @@ const Signup = (props) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [successful, setSuccessful] = useState(false)
+    const [loader, setLoader] = useState(false)
 
 
+    const updateError = () => {
+        props.clearError()
+    }
 
-
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        updateError()
         const callback = () => props.history.push('/feature')
         const postData = {
             email: email,
             password: password
         }
-        setSuccessful(props.signup(postData, callback))
+        setLoader(true)
+        await props.signup(postData, callback)
+        setLoader(false)
+
         event.preventDefault()
     }
 
@@ -75,6 +82,11 @@ const Signup = (props) => {
                 content='You can only sign up for an account once with a given e-mail address.'
             />
         )
+    }
+
+    const generateLoader = (loader) => {
+        if (loader) return <Loader/>
+        else return 
     }
 
     return (
@@ -109,6 +121,7 @@ const Signup = (props) => {
                                 <Button content='Sign up' primary type='submit' />
 
                             </Form>
+                            {generateLoader(loader)}
                             {generateMessage()}
 
                         </Grid.Column>

@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -35,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         background: '#f7f7f7',
+    },
+    aboutme: {
+        margin: theme.spacing(2),
+    },
+    icon: {
+        marginRight: theme.spacing(1),
     }
 }));
 
@@ -66,18 +73,19 @@ const ButtonAppBar = function (props) {
                 <>
                     <Button className={classes.button} variant="contained" color="primary" disabled>Sign In</Button>
                     <Button className={classes.button} variant="contained" color="secondary" disabled>Sign Up</Button>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={signoutLink}>Sign Out</Button>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={featureLink}>Feature</Button>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={postmessageLink}>Post Message</Button>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={getmessageLink}>Get Message</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={signoutLink} id='btn-signout'>Sign Out</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={featureLink} id='btn-feature' >Feature</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={postmessageLink} id='btn-post-message'>Post Message</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={getmessageLink} id='btn-get-message'>Get Message</Button>
+
                 </>
             );
         }
         else {
             return (
                 <>
-                    <Button className={classes.button} variant="contained" color="primary" onClick={signinLink}>Sign In</Button>
-                    <Button className={classes.button} variant="contained" color="secondary" onClick={signupLink}>Sign Up</Button>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={signinLink} id='btn-signin'>Sign In</Button>
+                    <Button className={classes.button} variant="contained" color="secondary" onClick={signupLink} id='btn-signup'>Sign Up</Button>
                     <Button className={classes.button} variant="contained" color="primary" disabled>Sign Out</Button>
                     <Button className={classes.button} variant="contained" color="primary" disabled>Feature</Button>
                     <Button className={classes.button} variant="contained" color="primary" disabled>Post Message</Button>
@@ -91,11 +99,22 @@ const ButtonAppBar = function (props) {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar className={classes.toolbar}>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <Link to="/">Redux Auth</Link>
-                    </IconButton>
+                    <Button className={classes.menuButton} color="inherit" id="floating-message">
+                        <Link to="/">Floating message</Link>
+                    </Button>
                     {renderButtons()}
+                    <a href="https://github.com/law-chain-hot">
+                        <Button 
+                            className={classes.aboutme} 
+                            variant="contained" 
+                        >
+                            <GitHubIcon className={classes.icon}/> About Me
+                        </Button> 
+                    </a>
+
+
                 </Toolbar>
+
             </AppBar>
         </div>
     );

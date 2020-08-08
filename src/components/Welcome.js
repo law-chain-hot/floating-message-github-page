@@ -38,7 +38,8 @@ const generateGuide = () => {
         skipButtonColor: "firebrick", // optional
         mouseHover: "true", // optional  default:false
         mode: "dark", // default: light
-        isKeyboard: true
+        isKeyboard: true,
+        isFocus: false
     })
 
     mask.guides = [

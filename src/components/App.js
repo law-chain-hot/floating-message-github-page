@@ -42,4 +42,5 @@ const mapStateToProps = (state) => {
     return { authenticated: state.auth.authenticated }
 }
 
-export default connect(mapStateToProps)(App)
+// export default connect(mapStateToProps)(App)
+export default App

@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
 
 import reducer from './reducers'
-import App from './components/App'
+import App from './components/index'
 
 
 import { Auth0Provider } from "@auth0/auth0-react";

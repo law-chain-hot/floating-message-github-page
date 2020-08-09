@@ -71,8 +71,8 @@ const ButtonAppBar = function (props) {
         if (props.authenticated || isAuthenticated) {
             return (
                 <>
-                    <Button className={classes.button} variant="contained" color="primary" disabled>Sign In</Button>
-                    <Button className={classes.button} variant="contained" color="secondary" disabled>Sign Up</Button>
+                    <Button className={classes.button} variant="contained" color="primary" disabled id='btn-signin'>Sign In</Button>
+                    <Button className={classes.button} variant="contained" color="secondary" disabled id='btn-signup'>Sign Up</Button>
                     <Button className={classes.button} variant="contained" color="primary" onClick={signoutLink} id='btn-signout'>Sign Out</Button>
                     <Button className={classes.button} variant="contained" color="primary" onClick={featureLink} id='btn-feature' >Feature</Button>
                     <Button className={classes.button} variant="contained" color="primary" onClick={postmessageLink} id='btn-post-message'>Post Message</Button>
@@ -86,10 +86,10 @@ const ButtonAppBar = function (props) {
                 <>
                     <Button className={classes.button} variant="contained" color="primary" onClick={signinLink} id='btn-signin'>Sign In</Button>
                     <Button className={classes.button} variant="contained" color="secondary" onClick={signupLink} id='btn-signup'>Sign Up</Button>
-                    <Button className={classes.button} variant="contained" color="primary" disabled>Sign Out</Button>
-                    <Button className={classes.button} variant="contained" color="primary" disabled>Feature</Button>
-                    <Button className={classes.button} variant="contained" color="primary" disabled>Post Message</Button>
-                    <Button className={classes.button} variant="contained" color="primary" disabled>Get Message</Button>
+                    <Button className={classes.button} variant="contained" color="primary" disabled id='btn-signout'>Sign Out</Button>
+                    <Button className={classes.button} variant="contained" color="primary" disabled id='btn-feature'>Feature</Button>
+                    <Button className={classes.button} variant="contained" color="primary" disabled id='btn-post-message'>Post Message</Button>
+                    <Button className={classes.button} variant="contained" color="primary" disabled id='btn-get-message'>Get Message</Button>
                 </>
             );
         }

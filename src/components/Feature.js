@@ -87,8 +87,9 @@ const Feature = () => {
                 Click the <b>FEATURE</b> button below to see more feature
             </div>
 
-            <Button className={classes.btn} variant="contained" color="primary" onClick={handleClick}>FEATURE</Button>
-
+            <Button className={classes.btn} variant="contained" color="primary" onClick={handleClick}>FEATURE</Button> 
+            <p />
+            <div>(Using MK-Guide)</div>
         </div>
     )
 }

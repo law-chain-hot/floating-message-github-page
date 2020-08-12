@@ -87,7 +87,9 @@ const Welcome = () => {
             </div>
 
             <Button className={classes.btn} variant="contained" color="primary" onClick={handleClick}>INTRO</Button>
-
+            
+            <p />
+            <div>(Using MK-Guide)</div>
         </div>
     )
 }

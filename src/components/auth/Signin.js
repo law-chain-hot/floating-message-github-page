@@ -151,7 +151,5 @@ const mapStateToProps = function (state) {
     }
 }
 
-export default compose(
-    connect(mapStateToProps, actions),
-)(Signin)
+export default compose(connect(mapStateToProps, actions),)(Signin)
 

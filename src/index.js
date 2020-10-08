@@ -9,12 +9,9 @@ import axios from 'axios'
 import reducer from './reducers'
 import App from './components/index'
 
-
-import { Auth0Provider } from "@auth0/auth0-react";
+import { Auth0Provider } from '@auth0/auth0-react'
 
 import 'semantic-ui-css/semantic.min.css'
-
-
 
 // const start = async () => {
 //     const IP = process.env.REACT_APP_SERVER
@@ -29,14 +26,12 @@ import 'semantic-ui-css/semantic.min.css'
 //         console.log(e)
 //     }
 
-
 //     console.log("response", response)
 //     const initState = {
 //         auth: {
 //             authenticated: response === null ? response : response.data
 //         }
 //     }
-
 
 //     const store = createStore(reducer, initState, applyMiddleware(reduxThunk))
 
@@ -56,57 +51,43 @@ import 'semantic-ui-css/semantic.min.css'
 //         , document.querySelector('#root')
 //     )
 
-
-
 // }
 
 // start()
-
-
-
 
 // function createThunkMiddleware(extraArgument) {
 //     return ({ dispatch, getState }) => next => action => {
 //       if (typeof action === 'function') {
 //         return action(dispatch, getState, extraArgument);
 //       }
-  
+
 //       return next(action);
 //     };
 //   }
-  
+
 //   const thunk = createThunkMiddleware();
-  
-
-
-
-
-
-
 
 // ======
 const initState = {
-    auth: {
-        authenticated: localStorage.getItem('token')
-    }
+  auth: {
+    authenticated: localStorage.getItem('token'),
+  },
 }
-
-
 
 const store = createStore(reducer, initState, applyMiddleware(reduxThunk))
 
 ReactDOM.render(
-    <Auth0Provider
-        domain="qianhao.us.auth0.com"
-        clientId="n7SUj53FMNjQq226jttnVYSbRYl8kIVb"
-        // redirectUri={window.location.origin}
-        redirectUri={process.env.REACT_APP_AUTH0}
-    >
-        <Provider store={store}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </Provider>
-    </Auth0Provider>
-    , document.querySelector('#root')
+  <Auth0Provider
+    domain="qianhao.us.auth0.com"
+    clientId="n7SUj53FMNjQq226jttnVYSbRYl8kIVb"
+    // redirectUri={window.location.origin}
+    redirectUri={process.env.REACT_APP_AUTH0}
+  >
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </Auth0Provider>,
+  document.querySelector('#root'),
 )

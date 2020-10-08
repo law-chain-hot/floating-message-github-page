@@ -1,21 +1,21 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import GitHubIcon from '@material-ui/icons/GitHub';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
 
-import { Link } from 'react-router-dom'
-import { compose } from 'redux'
-import { connect } from 'react-redux'
+import { Link } from "react-router-dom"
+import { compose } from "redux"
+import { connect } from "react-redux"
 
-import * as actions from '../reducers/actions/index'
+import * as actions from "../reducers/actions/index"
 
 import { withRouter } from "react-router-dom";
 
@@ -31,17 +31,17 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(1),
-        textTransform: 'none'
+        textTransform: "none"
 
     },
     toolbar: {
-        background: '#f7f7f7',
+        background: "#f7f7f7",
     },
     aboutme: {
         margin: theme.spacing(2),
     },
     icon: {
-        marginRight: theme.spacing(1),
+        marginRight: theme.spacing(1)
     }
 }));
 
@@ -56,12 +56,12 @@ const ButtonAppBar = function (props) {
         props.clearError()
     }
 
-    const signinLink = () => { props.history.push('/signin'); updateError() }
-    const signupLink = () => { props.history.push('/signup'); updateError() }
-    const signoutLink = () => { props.history.push('/signout'); updateError()}
-    const featureLink = () => { props.history.push('/feature'); updateError()}
-    const postmessageLink = () => { props.history.push('/postmessage'); updateError()}
-    const getmessageLink = () => { props.history.push('/getmessage'); updateError()}
+    const signinLink = () => { props.history.push("/signin"); updateError() }
+    const signupLink = () => { props.history.push("/signup"); updateError() }
+    const signoutLink = () => { props.history.push("/signout"); updateError() }
+    const featureLink = () => { props.history.push("/feature"); updateError() }
+    const postmessageLink = () => { props.history.push("/postmessage"); updateError() }
+    const getmessageLink = () => { props.history.push("/getmessage"); updateError() }
 
 
 
@@ -104,12 +104,12 @@ const ButtonAppBar = function (props) {
                     </Button>
                     {renderButtons()}
                     <a href="https://github.com/law-chain-hot">
-                        <Button 
-                            className={classes.aboutme} 
-                            variant="contained" 
+                        <Button
+                            className={classes.aboutme}
+                            variant="contained"
                         >
-                            <GitHubIcon className={classes.icon}/> About Me
-                        </Button> 
+                            <GitHubIcon className={classes.icon} /> About Me
+                        </Button>
                     </a>
 
 

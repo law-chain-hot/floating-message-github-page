@@ -72,25 +72,29 @@ const Feature = () => {
     }
 
     return (
-        <div className={classes.container}>
-            <div className={classes.title}>
-                <h1 >
-                    You successfully sign in!
-                </h1>
-            </div>
-            <div className={classes.des}>
-
-                Now you have the access to all features
-                <p />
-                <p />
-
-                Click the <b>FEATURE</b> button below to see more feature
-            </div>
-
-            <Button className={classes.btn} variant="contained" color="primary" onClick={handleClick}>FEATURE</Button> 
-            <p />
-            <div>(Using MK-Guide)</div>
+      <div className={classes.container}>
+        <div className={classes.title}>
+          <h1>
+            You successfully sign in!
+          </h1>
         </div>
+        <div className={classes.des}>
+
+          Now you have the access to all features
+          <p />
+          <p />
+
+          Click the 
+          {' '}
+          <b>FEATURE</b>
+          {' '}
+          button below to see more feature
+        </div>
+
+        <Button className={classes.btn} variant="contained" color="primary" onClick={handleClick}>FEATURE</Button> 
+        <p />
+        <div>(Using MK-Guide)</div>
+      </div>
     )
 }
 

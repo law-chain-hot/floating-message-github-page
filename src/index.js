@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
@@ -84,10 +84,13 @@ ReactDOM.render(
     redirectUri={process.env.REACT_APP_AUTH0}
   >
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      {/* <Suspense fallback={<div></div>}> */}
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      {/* </Suspense> */}
     </Provider>
   </Auth0Provider>,
+
   document.querySelector('#root'),
 )

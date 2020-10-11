@@ -9,7 +9,7 @@ export const signup = (formProps, callback = () => {}) => async (dispatch, getSt
     const token = response.data.token
     dispatch({
       type: AUTH_USER,
-      payload: token,
+       payload: token,
     })
     dispatch({
       type: AUTH_ERROR,
@@ -25,7 +25,7 @@ export const signup = (formProps, callback = () => {}) => async (dispatch, getSt
       payload: 'Email is in use',
     })
   }
-}``
+}
 
 export const signout = (callback) => (dispatch) => {
   // if user has logged out, redirect to signup

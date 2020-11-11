@@ -9,19 +9,19 @@ const Header = (props) => {
 
   const renderLinks = () => {
     if (props.authenticated || isAuthenticated) {
-      return (
+      return ( 
         <>
-          <Link to="/signout">Sign Out</Link>
-          <Link to="/feature">Feature</Link>
-          <Link to="/postmessage">Post Message</Link>
-          <Link to="/getmessage">Get Message</Link>
+          <Link to={'/Floating-Message-Client/signout'}>Sign Out</Link>
+          <Link to="/Floating-Message-Client/feature">Feature</Link>
+          <Link to="/Floating-Message-Client/postmessage">Post Message</Link>
+          <Link to="/Floating-Message-Client/getmessage">Get Message</Link>
         </>
       )
     } else {
       return (
         <>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/signin">Sign In</Link>
+          <Link to={"/Floating-Message-Client/signup"}>Sign Up</Link>
+          <Link to={"/Floating-Message-Client/signin"}>Sign In</Link>
         </>
       )
     }

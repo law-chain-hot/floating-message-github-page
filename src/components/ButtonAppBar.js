@@ -51,17 +51,19 @@ const useStyles = makeStyles((theme) => ({
 const ButtonAppBar = function (props) {
     const classes = useStyles();
     const { user, isAuthenticated } = useAuth0();
+    const pathPrefix = "/Floating-Message-Client"
+
 
     const updateError = () => {
         props.clearError()
     }
 
-    const signinLink = () => { props.history.push("/signin"); updateError() }
-    const signupLink = () => { props.history.push("/signup"); updateError() }
-    const signoutLink = () => { props.history.push("/signout"); updateError() }
-    const featureLink = () => { props.history.push("/feature"); updateError() }
-    const postmessageLink = () => { props.history.push("/postmessage"); updateError() }
-    const getmessageLink = () => { props.history.push("/getmessage"); updateError() }
+    const signinLink = () => { props.history.push(`${pathPrefix}/signin`); updateError() }
+    const signupLink = () => { props.history.push(`${pathPrefix}/signup`); updateError() }
+    const signoutLink = () => { props.history.push(`${pathPrefix}/signout`); updateError() }
+    const featureLink = () => { props.history.push(`${pathPrefix}/feature`); updateError() }
+    const postmessageLink = () => { props.history.push(`${pathPrefix}/postmessage`); updateError() }
+    const getmessageLink = () => { props.history.push(`${pathPrefix}/getmessage`); updateError() }
 
 
 

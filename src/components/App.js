@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 // import Header from './Header'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 import LoginButton from './auth/LoginButton'
 import LogoutButton from './auth/LogoutButton'
 import Profile from './auth/Profile'
@@ -30,19 +30,21 @@ const GetMessage = React.lazy(() => import('./GetMessage'))
 const App = ({ children, authenticated }) => {
   const { user, isAuthenticated } = useAuth0()
   document.body.style.background = '#bfbfbf12'
+  const pathPrefix = "/Floating-Message-Client"
 
   return (
-    <>
+    <> 
       <ButtonAppBar />
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense fallback={<div></div>}>
-        <Route path="/" exact component={Welcome} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/feature" exact component={Feature} />
-        <Route path="/signout" exact component={Signout} />
-        <Route path="/signin" exact component={Signin} />
-        <Route path="/postmessage" exact component={Message} />
-        <Route path="/getmessage" exact component={GetMessage} />
+        <Route path={`${pathPrefix}/`} exact component={Welcome} />
+        <Route path={`${pathPrefix}/signup`} exact component={Signup} />
+        <Route path={`${pathPrefix}/feature`} exact component={Feature} />
+        <Route path={`${pathPrefix}/signout`} exact component={Signout} />
+        <Route path={`${pathPrefix}/signin`} exact component={Signin} />
+        <Route path={`${pathPrefix}/postmessage`} exact component={Message} />
+        <Route path={`${pathPrefix}/getmessage`} exact component={GetMessage} />
+        <Redirect to={`${pathPrefix}/`}/>
       </Suspense>
     </>
   )
